@@ -7,7 +7,7 @@ const isProduction = process.env.NODE_ENV == 'production';
 
 
 const config = {
-    entry: './src/index.js',
+    entry: './src/index.tsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
@@ -26,7 +26,7 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/i,
+                test: /\.(js|jsx|ts|tsx)$/i,
                 loader: 'babel-loader',
             },
             {
@@ -37,6 +37,9 @@ const config = {
             // Add your rules for custom modules here
             // Learn more about loaders from https://webpack.js.org/loaders/
         ],
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
     },
 };
 
